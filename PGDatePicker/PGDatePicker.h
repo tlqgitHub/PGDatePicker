@@ -31,12 +31,15 @@ typedef NS_ENUM(NSUInteger, PGDatePickerType) {
 
 #define PGDatePickerDeprecated(instead) __attribute__((deprecated(instead)))
 
+typedef void (^PickerdidSelect)(NSDateComponents *dateComponents);
+
 @protocol PGDatePickerDelegate;
 
 @interface PGDatePicker : UIControl
 @property (nonatomic, weak) id<PGDatePickerDelegate> delegate;
 @property (nonatomic, assign) PGDatePickerMode datePickerMode; // default is PGDatePickerModeYear
 @property(nonatomic, assign) PGDatePickerType datePickerType;
+@property (nonatomic, strong) PickerdidSelect pickerdidSelect;
 
 /*
  默认是false

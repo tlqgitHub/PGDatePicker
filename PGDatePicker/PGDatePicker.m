@@ -310,6 +310,9 @@ static NSString *const reuseIdentifier = @"PGDatePickerView";
     if (self.delegate && [self.delegate respondsToSelector:@selector(datePicker:didSelectDate:)]) {
         [self.delegate datePicker:self didSelectDate:self.selectedComponents];
     }
+    if (self.pickerdidSelect) {
+        self.pickerdidSelect(self.selectedComponents);
+    }
 }
 
 
